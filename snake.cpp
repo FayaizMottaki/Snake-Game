@@ -74,6 +74,9 @@ int main() {
 
             int newX = snakeX[0] + dirX;
             int newY = snakeY[0] + dirY;
+            if(newX<0||newX>=cols||newY<0||newY>=rows){
+                gameOver=true;
+            }
 
             for (size_t i = 0; i < snakeX.size(); i++) {
 //detect if snakes cuurect coordinates is new 
