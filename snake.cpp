@@ -36,6 +36,7 @@ int main() {
 
     bool gameOver = false;
     bool running = true;
+    bool paused =false;
 
     while (running) {
 
@@ -46,7 +47,13 @@ int main() {
             if (e.type == SDL_QUIT)
                 running = false;
 
-            if (e.type == SDL_KEYDOWN) {
+               
+
+            if (e.type == SDL_KEYDOWN) { 
+                
+                 if(e.key.keysym.sym==SDLK_p){
+                    paused=!paused;
+                }
 
                 if (e.key.keysym.sym == SDLK_UP) {
                     dirX = 0;
@@ -70,7 +77,7 @@ int main() {
             }
         }
 
-        if (!gameOver) {
+        if (!gameOver && !paused) {
 
             int newX = snakeX[0] + dirX;
             int newY = snakeY[0] + dirY;
@@ -115,7 +122,7 @@ int main() {
             }
         }
 
-        if (!gameOver) {
+        if (!gameOver && !paused) {
 
             SDL_SetRenderDrawColor(
                 renderer,
