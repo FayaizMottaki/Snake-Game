@@ -23,11 +23,11 @@ int main() {
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
 
-    std::vector<int> snakeX = {10, 9, 8};
+    std::vector<int> snakeX = {19, 18, 17};
     std::vector<int> snakeY = {10, 10, 10};
 
-    int dirX = 1;
-    int dirY = 0;
+    int dirX = 0;
+    int dirY = 1;
 
     int foodX = rand() % cols;
     int foodY = rand() % rows;
@@ -127,15 +127,14 @@ int main() {
             SDL_SetRenderDrawColor(
                 renderer,
                 0, 0, 0, 255
-            );
+            );//background
 
             SDL_RenderClear(renderer);
 
             SDL_SetRenderDrawColor(
                 renderer,
-                0, 255, 0, 255
-            );
-
+                255, 255, 255, 255
+            );//snake
             for (size_t i = 0; i < snakeX.size(); i++) {
 
                 SDL_Rect rect = {
@@ -153,8 +152,8 @@ int main() {
 
             SDL_SetRenderDrawColor(
                 renderer,
-                255, 0, 0, 255
-            );
+                0, 255, 0, 255
+            );//food
 
             SDL_Rect foodRect = {
                 foodX * cellSize,
@@ -172,8 +171,8 @@ int main() {
 
             SDL_SetRenderDrawColor(
                 renderer,
-                150, 0, 0, 255
-            );
+                255, 0, 0, 255
+            );//gameover
 
             SDL_RenderClear(renderer);
         }
@@ -191,3 +190,4 @@ int main() {
     return 0;
 }
 
+//g++ snake.cpp -o snake $(pkg-config --cflags --libs sdl2) ./snake
