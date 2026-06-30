@@ -27,7 +27,7 @@ int main() {
     std::vector<int> snakeY = {10, 10, 10};
 
     int dirX = 0;
-    int dirY = 1;
+    int dirY = -1;
 
     int foodX = rand() % cols;
     int foodY = rand() % rows;
@@ -179,7 +179,7 @@ int main() {
 
         SDL_RenderPresent(renderer);
 
-        SDL_Delay(150);
+        SDL_Delay(120);
     }
 
     SDL_DestroyRenderer(renderer);
