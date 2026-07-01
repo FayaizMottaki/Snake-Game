@@ -88,6 +88,10 @@ int main() {
             int newY = snakeY[0] + dirY;
             if(newX<0||newX>=cols||newY<0||newY>=rows){
                 gameOver=true;
+                 std::cout
+                        << "GAME OVER! Final Score: "
+                        << score
+                        << std::endl;
             }
 
             for (size_t i = 0; i < snakeX.size(); i++) {
