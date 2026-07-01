@@ -23,8 +23,13 @@ int main() {
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
 
-    std::vector<int> snakeX = {19, 18, 17, 16, 15, 14};
-    std::vector<int> snakeY = {10, 10, 10, 10, 10, 10};
+    std::vector<int> snakeX;
+    std::vector<int> snakeY;
+
+    for(int i=0;i<5;i++){
+        snakeX.push_back(cols-1-i);
+        snakeY.push_back(10);
+    }
 
     int dirX = 0;
     int dirY = -1;
